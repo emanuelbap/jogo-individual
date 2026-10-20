@@ -4,6 +4,7 @@ Responsável: Emanuel Apolinário
 BUILD
 Unity 6000.6.6f1, alvo WebGL, build concluído com zero erros.
 Tela do build e da aba Game: 600 × 480, com arena e interface adaptadas.
+Pré-publicação: rodapé do template oculto para evitar corte de 19 px no iframe de 600 × 480. Posição do canvas conferida: x=0, y=0, largura=600, altura=480.
 O build foi gerado numa cópia limpa do mesmo projeto para eliminar referências antigas dos pacotes do template. Os scripts, o material e a cena corrigidos estão sincronizados com o projeto principal.
 
 TESTE NO NAVEGADOR
@@ -47,6 +48,7 @@ ARQUIVOS
 cover.png: capa de 630 × 500, com o nome completo.
 DefesaEspacial-WebGL.zip: build para enviar ao itch.io, com index.html na raiz. Integridade do ZIP conferida.
 ITCH_IO.txt: descrição, controles, créditos e checklist de publicação.
+PAGINA_ITCH.html: descrição formatada para a página do jogo.
 
 BALANCEAMENTO
 A dificuldade chega ao limite aos 40 segundos. Asteroides: velocidade de 2,8 a 6 unidades/s e intervalo de 1,05 a 0,65 segundo. Inimigos: primeiro aos 8 segundos, intervalo de 7 a 4 segundos, máximo de dois em cena, perseguição lateral de 2 a 3 unidades/s (jogador: 8). Na aproximação final, seguem reto.

@@ -188,6 +188,10 @@ public static class SpaceProjectBuilder
         });
         File.WriteAllText("Delivery/build-result.txt", $"Resultado: {report.summary.result}\nErros: {report.summary.totalErrors}\nTamanho: {report.summary.totalSize} bytes\n");
         if (report.summary.result != BuildResult.Succeeded) throw new Exception("Falha no build WebGL. Veja o Console do Unity.");
+        // O rodapé do template ocupa 38 px e cortaria o jogo no iframe 600 x 480.
+        string cssPath = "Delivery/WebGL/TemplateData/style.css";
+        if (File.Exists(cssPath))
+            File.AppendAllText(cssPath, "\n#unity-footer { display: none; }\nbody { overflow: hidden; }\n");
         Debug.Log("Defesa Espacial: WebGL pronto em Delivery/WebGL.");
     }
 
