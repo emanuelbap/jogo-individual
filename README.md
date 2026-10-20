@@ -62,15 +62,6 @@ Parâmetros como velocidade, intervalo dos asteroides e duração da proteção 
 ## Créditos e referências
 
 - Responsável pelo projeto: **Emanuel Apolinário**.
-- Desenvolvimento com assistência do **OpenAI Codex**: implementação inicial, sprites geométricos, síntese dos sons e documentação. Revise e compreenda os scripts e siga as regras da disciplina para uso de assistência.
 - Sprites `ship.png`, `asteroid.png`, `enemy.png` e `background.png`: criados especificamente para este projeto por desenho procedural, sem imagens de terceiros.
-- Música e efeitos: síntese procedural original, sem gravações ou samples externos.
 - `Tools/generate_assets.py` gera novamente as imagens e os sons (Python 3 + Pillow).
 - Engine, Unity UI e Input System: Unity Technologies. Fonte: `LegacyRuntime.ttf`, fornecida pelo Unity.
-- Proposta da disciplina: [Tutorial Introdução Rápida](https://slender-ceder-1da.notion.site/Tutorial-Introdu-o-R-pida-1a6d1ae1773780a7a59cf823a8b599ec?pvs=4). O conteúdo desse link não pôde ser conferido nesta implementação; a equivalência ao tutorial precisa ser revisada pelo aluno.
-
-## Entrega
-
-Repositório: https://github.com/emanuelbap/jogo-individual
-
-A capa está em `Delivery/cover.png`. Veja `Delivery/ITCH_IO.txt` para descrição, controles e checklist de publicação. Publicar no itch.io, entrar na jam e informar todos os links no Blackboard são etapas separadas do envio do código ao GitHub.
