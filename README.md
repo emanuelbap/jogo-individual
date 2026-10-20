@@ -2,6 +2,8 @@
 
 **Jogue no navegador:** https://emanuel-apolinario.itch.io/defesa-espacial
 
+**Inscrição na jam:** https://itch.io/jam/projeto-intro-unity-insper-20262/rate/5197267
+
 Jogo 2D de sobrevivência feito em **Unity 6000.6.6f1** para o Projeto Introdução ao Unity do Insper (2026.2).
 
 Controle uma nave, desvie dos asteroides e das naves inimigas e tente sobreviver o máximo possível. A pontuação é independente do tempo: cada asteroide que passa sem atingir a nave vale **10 pontos** e cada nave inimiga desviada vale **25 pontos**. A nave começa com três vidas; os asteroides ficam mais rápidos e frequentes com o passar do tempo. Após uma colisão, a nave pisca e fica protegida por 1,5 segundo.

@@ -36,7 +36,7 @@ Página pública: https://emanuel-apolinario.itch.io/defesa-espacial
 [x] Colar descrição, controles, nome completo e link do GitHub.
 [ ] Testar o jogo na própria página publicada, inclusive áudio e reinício.
 [ ] Testar controle Xbox conectado ao navegador, se disponível.
-[ ] Inscrever o jogo em https://itch.io/jam/projeto-intro-unity-insper-20262
+[x] Inscrito na jam como Ciência da Computação: https://itch.io/jam/projeto-intro-unity-insper-20262/rate/5197267
 [ ] Entregar os links completos no Blackboard até 20/10/2026 às 23:50 (Brasília).
 
 CONFERÊNCIA COM A RUBRICA
