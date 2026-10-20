@@ -6,8 +6,8 @@ public class AsteroidSpawner : MonoBehaviour
     public Sprite asteroidSprite;
     public Sprite enemySprite;
     public Material asteroidMaterial;
-    public float initialInterval = 0.95f;
-    public float minimumInterval = 0.48f;
+    public float initialInterval = 1.05f;
+    public float minimumInterval = 0.65f;
     public float secondsToMaxDifficulty = 40;
     float timer;
     float enemyTimer;
@@ -40,8 +40,8 @@ public class AsteroidSpawner : MonoBehaviour
         // Evita criar um perigo diretamente sobre a nave quando ela está no alto.
         Vector3 player = game.player.transform.position;
         if (player.y > 1.5f)
-            return player.x >= 0 ? Random.Range(-8f, -1.5f) : Random.Range(1.5f, 8f);
-        return Random.Range(-8f, 8f);
+            return player.x >= 0 ? Random.Range(-5.5f, -1.5f) : Random.Range(1.5f, 5.5f);
+        return Random.Range(-5.5f, 5.5f);
     }
 
     GameObject MakeHazard(string name, Sprite sprite)

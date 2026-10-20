@@ -27,3 +27,5 @@
 /Assets/Resources/PerformanceTestRunSettings.json*
 
 /Delivery/build-result.txt
+
+/Delivery/request-resolution

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-// Controla os três estados da partida e mantém o tempo como pontuação.
+// Controla a partida, o cronômetro e a pontuação por perigos desviados.
 public class GameManager : MonoBehaviour
 {
     public enum GameState { Menu, Playing, GameOver }
@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public float SurvivalTime { get; private set; }
     public float BestTime { get; private set; }
     public int Lives { get; private set; } = 3;
+    public int Score { get; private set; }
+    public int BestScore { get; private set; }
     public bool Paused { get; private set; }
     public PlayerController player;
     public AsteroidSpawner spawner;
@@ -19,6 +21,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
         BestTime = PlayerPrefs.GetFloat("BestSurvivalTime", 0);
+        BestScore = PlayerPrefs.GetInt("BestScore", 0);
         State = GameState.Menu;
         ui.Refresh();
     }
@@ -45,12 +48,19 @@ public class GameManager : MonoBehaviour
         spawner.Clear();
         Lives = 3;
         SurvivalTime = 0;
+        Score = 0;
         State = GameState.Playing;
         player.ResetPosition();
         spawner.ResetTimer();
         audioPlayer.StartMusic();
         audioPlayer.PlayStart();
         ui.Refresh();
+    }
+
+    public void AddScore(int points)
+    {
+        if (State != GameState.Playing || Paused || points <= 0) return;
+        Score += points;
     }
 
     public void TakeDamage()
@@ -66,8 +76,13 @@ public class GameManager : MonoBehaviour
             {
                 BestTime = SurvivalTime;
                 PlayerPrefs.SetFloat("BestSurvivalTime", BestTime);
-                PlayerPrefs.Save();
             }
+            if (Score > BestScore)
+            {
+                BestScore = Score;
+                PlayerPrefs.SetInt("BestScore", BestScore);
+            }
+            PlayerPrefs.Save();
             audioPlayer.StopMusic();
             audioPlayer.PlayGameOver();
         }

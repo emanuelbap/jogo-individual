@@ -20,6 +20,10 @@ public class EnemyShip : MonoBehaviour
         }
         position.y -= fallSpeed * Time.deltaTime;
         transform.position = position;
-        if (position.y < -6) Destroy(gameObject);
+        if (position.y < -6)
+        {
+            game.AddScore(25);
+            Destroy(gameObject);
+        }
     }
 }

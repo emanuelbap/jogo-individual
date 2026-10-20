@@ -1,0 +1,1 @@
+PASS: +10 asteroide, +25 inimigo, pausa, colisão sem pontos, reinício, recorde e fim de jogo.

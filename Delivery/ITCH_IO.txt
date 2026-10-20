@@ -4,18 +4,20 @@ Defesa Espacial
 DESCRIÇÃO
 Uma nave, três vidas e uma chuva de asteroides e naves inimigas. Quanto tempo você consegue sobreviver?
 
-Defesa Espacial é um arcade 2D em que você precisa desviar dos asteroides e das naves inimigas que chegam do alto da tela. A dificuldade aumenta até os 40 segundos e depois se estabiliza. As naves inimigas acompanham você na horizontal e seguem reto na aproximação final. Seu tempo de sobrevivência é sua pontuação: tente superar seu recorde!
+Defesa Espacial é um arcade 2D em que você precisa desviar dos asteroides e das naves inimigas que chegam do alto da tela. A dificuldade aumenta até os 40 segundos e depois se estabiliza. As naves inimigas acompanham você na horizontal e seguem reto na aproximação final. Cada asteroide desviado vale 10 pontos e cada nave inimiga desviada vale 25 pontos. Tente superar seus recordes de pontuação e de tempo!
 
 COMO JOGAR
 • W A S D ou setas: mover a nave em todas as direções.
 • Controle Xbox: analógico esquerdo ou direcional para mover; A confirma os botões.
 • Enter confirma o botão selecionado; Espaço inicia ou reinicia a partida.
 • Esc ou Start: pausar e continuar.
+• Os pontos são concedidos quando o perigo sai pela parte inferior da arena sem atingir você.
+• Asteroide desviado: +10 pontos. Nave inimiga desviada: +25 pontos. Colisões não dão pontos.
 • Você começa com 3 vidas. Após um impacto, a nave pisca e fica protegida por 1,5 segundo.
-• Ao perder todas as vidas, confira seu tempo e escolha Tentar novamente.
+• Ao perder todas as vidas, confira seus pontos e seu tempo e escolha Tentar novamente.
 • Os botões também funcionam com o mouse. O som pode ser desligado no menu.
 • Ao sair da aba, a partida pausa. Clique no jogo e escolha Continuar para retomar.
-• O recorde fica salvo neste navegador. Não há segredos ou controles adicionais.
+• Os recordes de pontos e tempo ficam salvos neste navegador. Não há segredos ou controles adicionais.
 
 CRÉDITOS
 Aluno: Emanuel Apolinário
@@ -28,7 +30,7 @@ PUBLICAÇÃO
 [x] Nome completo nos créditos: Emanuel Apolinário.
 [ ] Fazer upload de DefesaEspacial-WebGL.zip (ou zipar o conteúdo de WebGL/).
 [ ] Tipo: HTML, marcar que o arquivo é jogável no navegador.
-[ ] Área de jogo: 960 × 540; permitir tela cheia.
+[ ] Área de jogo: 600 × 480; permitir tela cheia.
 [ ] Adicionar capa e capturas de tela da pasta Delivery.
 [ ] Colar descrição, controles, nome completo e link do GitHub.
 [ ] Testar o jogo na própria página publicada, inclusive áudio e reinício.
@@ -37,5 +39,5 @@ PUBLICAÇÃO
 [ ] Entregar os links completos no Blackboard até 20/10/2026 às 23:50 (Brasília).
 
 CONFERÊNCIA COM A RUBRICA
-Implementado: cronômetro, tempo final, dificuldade por tempo, asteroides em movimento com dano, sprites coerentes, música e três efeitos, tempo/vidas/recorde na UI, suporte a controle, arena espacial, menu, reinício e pausa.
-O GDD usa o tempo como pontuação; não há pontuação separada. Há naves inimigas com perseguição lateral e ataque em linha reta; os asteroides seguem trajetórias verticais. O tutorial original precisa ser conferido pelo aluno. Esses detalhes podem influenciar a avaliação; não há garantia de nota.
+Implementado: cronômetro, tempo final, dificuldade por tempo, asteroides em movimento com dano, sprites coerentes, música e três efeitos, pontos/tempo/vidas/recordes na UI, suporte a controle, arena espacial, menu, reinício e pausa.
+A pontuação é separada do cronômetro e aparece durante a partida e na tela final. Há naves inimigas com perseguição lateral e ataque em linha reta; os asteroides seguem trajetórias verticais. O tutorial original precisa ser conferido pelo aluno. Esses detalhes podem influenciar a avaliação; não há garantia de nota.

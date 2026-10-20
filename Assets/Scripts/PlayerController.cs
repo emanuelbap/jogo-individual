@@ -5,9 +5,9 @@ public class PlayerController : MonoBehaviour
 {
     public GameManager game;
     public float speed = 8;
-    public float horizontalLimit = 8.2f;
-    public float bottomLimit = -4.1f;
-    public float topLimit = 3.3f;
+    public float horizontalLimit = 5.6f;
+    public float bottomLimit = -3.8f;
+    public float topLimit = 2.65f;
     public float protectionSeconds = 1.5f;
     public bool IsInvulnerable => protectionTime > 0;
     float protectionTime;

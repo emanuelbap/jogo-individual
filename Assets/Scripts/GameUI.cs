@@ -7,7 +7,7 @@ using UnityEngine.InputSystem.UI;
 public class GameUI : MonoBehaviour
 {
     public GameManager game;
-    Text timeLabel, livesLabel, bestLabel, title, description, finalTime, soundLabel;
+    Text timeLabel, scoreLabel, livesLabel, bestLabel, title, description, finalTime, soundLabel;
     GameObject overlay, hud;
     Button primaryButton, menuButton, soundButton, pauseButton;
     Font font;
@@ -23,30 +23,32 @@ public class GameUI : MonoBehaviour
         canvas.sortingOrder = 100;
         var scaler = gameObject.AddComponent<CanvasScaler>();
         scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
-        scaler.referenceResolution = new Vector2(960, 540);
+        scaler.referenceResolution = new Vector2(600, 480);
         gameObject.AddComponent<GraphicRaycaster>();
         var events = new GameObject("EventSystem", typeof(EventSystem), typeof(InputSystemUIInputModule));
         events.GetComponent<InputSystemUIInputModule>().AssignDefaultActions();
 
-        hud = Panel("Informações", transform, Color.clear, Vector2.zero, new Vector2(960, 540));
-        timeLabel = Label(hud.transform, "TEMPO  0,0 s", new Vector2(-330, 220), 24, new Vector2(270, 40));
-        livesLabel = Label(hud.transform, "VIDAS  3 / 3", new Vector2(335, 220), 24, new Vector2(250, 40));
+        hud = Panel("Informações", transform, Color.clear, Vector2.zero, new Vector2(600, 480));
+        timeLabel = Label(hud.transform, "TEMPO  0,0 s", new Vector2(-200, 202), 18, new Vector2(180, 32));
+        scoreLabel = Label(hud.transform, "PONTOS  0", new Vector2(0, 202), 18, new Vector2(170, 32));
+        scoreLabel.color = cyan;
+        livesLabel = Label(hud.transform, "VIDAS  3 / 3", new Vector2(205, 202), 18, new Vector2(170, 32));
         livesLabel.color = new Color(1, 0.55f, 0.4f);
-        pauseButton = MakeButton(hud.transform, "II", new Vector2(0, 220), new Vector2(54, 36), game.TogglePause);
-        bestLabel = Label(transform, "", new Vector2(0, -245), 16, new Vector2(900, 28));
+        pauseButton = MakeButton(hud.transform, "II", new Vector2(0, 166), new Vector2(42, 28), game.TogglePause);
+        bestLabel = Label(transform, "", new Vector2(0, -221), 14, new Vector2(570, 24));
         bestLabel.color = new Color(0.55f, 0.65f, 0.8f);
 
-        overlay = Panel("Painel", transform, new Color(0.015f, 0.025f, 0.07f, 0.94f), Vector2.zero, new Vector2(960, 540));
-        Label(overlay.transform, "ARCADE  /  SOBREVIVÊNCIA", new Vector2(0, 205), 16, new Vector2(800, 30)).color = cyan;
-        title = Label(overlay.transform, "DEFESA ESPACIAL", new Vector2(0, 142), 48, new Vector2(900, 75));
-        description = Label(overlay.transform, "", new Vector2(0, 60), 21, new Vector2(850, 75));
-        finalTime = Label(overlay.transform, "", new Vector2(0, -3), 28, new Vector2(850, 40));
+        overlay = Panel("Painel", transform, new Color(0.015f, 0.025f, 0.07f, 0.94f), Vector2.zero, new Vector2(600, 480));
+        Label(overlay.transform, "ARCADE  /  SOBREVIVÊNCIA", new Vector2(0, 201), 14, new Vector2(560, 28)).color = cyan;
+        title = Label(overlay.transform, "DEFESA ESPACIAL", new Vector2(0, 155), 36, new Vector2(560, 55));
+        description = Label(overlay.transform, "", new Vector2(0, 88), 16, new Vector2(550, 68));
+        finalTime = Label(overlay.transform, "", new Vector2(0, 17), 21, new Vector2(560, 62));
         finalTime.color = cyan;
-        primaryButton = MakeButton(overlay.transform, "INICIAR", new Vector2(0, -73), new Vector2(290, 52), PrimaryAction);
-        menuButton = MakeButton(overlay.transform, "MENU PRINCIPAL", new Vector2(0, -135), new Vector2(290, 42), game.ReturnToMenu);
-        soundButton = MakeButton(overlay.transform, "", new Vector2(0, -188), new Vector2(180, 34), ToggleSound);
+        primaryButton = MakeButton(overlay.transform, "INICIAR", new Vector2(0, -62), new Vector2(260, 44), PrimaryAction);
+        menuButton = MakeButton(overlay.transform, "MENU PRINCIPAL", new Vector2(0, -115), new Vector2(260, 38), game.ReturnToMenu);
+        soundButton = MakeButton(overlay.transform, "", new Vector2(0, -163), new Vector2(180, 30), ToggleSound);
         soundLabel = soundButton.GetComponentInChildren<Text>();
-        Label(overlay.transform, "Mover: W A S D ou setas  •  Controle: analógico / direcional\nEnter / Espaço / A: iniciar  •  Esc / Start: pausar", new Vector2(0, -239), 16, new Vector2(900, 50));
+        Label(overlay.transform, "Mover: WASD / setas | Controle: analógico / direcional\nEnter / Espaço / A: iniciar | Esc / Start: pausar", new Vector2(0, -211), 13, new Vector2(570, 48));
     }
 
     void PrimaryAction()
@@ -64,6 +66,7 @@ public class GameUI : MonoBehaviour
     public void UpdateHUD()
     {
         timeLabel.text = $"TEMPO  {game.SurvivalTime:0.0} s";
+        scoreLabel.text = $"PONTOS  {game.Score}";
         livesLabel.text = $"VIDAS  {game.Lives} / 3";
     }
 
@@ -75,13 +78,13 @@ public class GameUI : MonoBehaviour
         hud.SetActive(!menu && !over && !game.Paused);
         bestLabel.gameObject.SetActive(!menu && !over && !game.Paused);
         title.text = menu ? "DEFESA ESPACIAL" : over ? "FIM DE JOGO" : "PAUSADO";
-        description.text = menu ? "Desvie dos asteroides e das naves inimigas.\nVocê tem 3 vidas. Os inimigos seguem você na aproximação."
+        description.text = menu ? "Desvie dos asteroides e das naves inimigas.\nAsteroide desviado: +10 | Nave desviada: +25.\nVocê tem 3 vidas. Sobreviva e faça mais pontos!"
             : over ? "Sua nave foi atingida. Vamos tentar mais uma vez?" : "Respire um pouco. Sua partida está guardada aqui.";
-        finalTime.text = over ? $"VOCÊ SOBREVIVEU {game.SurvivalTime:0.0} s" : $"RECORDE  {game.BestTime:0.0} s";
+        finalTime.text = over ? $"PONTOS  {game.Score}\nTEMPO  {game.SurvivalTime:0.0} s" : $"RECORDE  {game.BestScore} PTS\nMELHOR TEMPO  {game.BestTime:0.0} s";
         primaryButton.GetComponentInChildren<Text>().text = menu ? "INICIAR" : over ? "TENTAR NOVAMENTE" : "CONTINUAR";
         menuButton.gameObject.SetActive(!menu);
         soundLabel.text = game.audioPlayer.Muted ? "SOM: DESLIGADO" : "SOM: LIGADO";
-        bestLabel.text = $"RECORDE  {game.BestTime:0.0} s   •   Quanto mais tempo, maior o desafio";
+        bestLabel.text = $"RECORDE  {game.BestScore} PTS  |  MELHOR TEMPO  {game.BestTime:0.0} s";
         EventSystem.current.SetSelectedGameObject(null);
         if (overlay.activeSelf) EventSystem.current.SetSelectedGameObject(primaryButton.gameObject);
         UpdateHUD();
@@ -126,7 +129,7 @@ public class GameUI : MonoBehaviour
         colors.selectedColor = new Color(0.4f, 0.9f, 1);
         button.colors = colors;
         button.onClick.AddListener(action);
-        Label(obj.transform, text, Vector2.zero, 20, size);
+        Label(obj.transform, text, Vector2.zero, 18, size);
         return button;
     }
 }

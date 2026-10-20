@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Reflection;
 using UnityEditor;
 using UnityEditor.Build.Reporting;
 using UnityEditor.SceneManagement;
@@ -20,8 +21,20 @@ public static class SpaceProjectBuilder
 
     static void CheckRequest()
     {
+        if (EditorApplication.isCompiling || EditorApplication.isUpdating) return;
+        const string resolutionRequest = "Delivery/request-resolution";
+        if (EditorApplication.isPlaying)
+        {
+            if (File.Exists(resolutionRequest)) EditorApplication.isPlaying = false;
+            return;
+        }
+        if (File.Exists(resolutionRequest))
+        {
+            File.Delete(resolutionRequest);
+            SetGameViewSize();
+        }
         const string request = "Delivery/request-build";
-        if (!File.Exists(request) || EditorApplication.isCompiling || EditorApplication.isUpdating || EditorApplication.isPlaying) return;
+        if (!File.Exists(request)) return;
         File.Delete(request);
         try { BuildWebGL(); }
         catch (Exception e) { File.WriteAllText("Delivery/build-error.txt", e.ToString()); Debug.LogException(e); }
@@ -75,7 +88,8 @@ public static class SpaceProjectBuilder
         var spawner = new GameObject("AsteroidSpawner").AddComponent<AsteroidSpawner>();
         spawner.game = manager;
         spawner.asteroidMaterial = spriteMaterial;
-        spawner.minimumInterval = 0.48f;
+        spawner.initialInterval = 1.05f;
+        spawner.minimumInterval = 0.65f;
         spawner.enemySprite = Load<Sprite>("Assets/Art/enemy.png");
         spawner.asteroidSprite = Load<Sprite>("Assets/Art/asteroid.png");
         manager.spawner = spawner;
@@ -99,10 +113,10 @@ public static class SpaceProjectBuilder
         EditorBuildSettings.scenes = new[] { new EditorBuildSettingsScene(ScenePath, true) };
         PlayerSettings.productName = "Defesa Espacial";
         PlayerSettings.companyName = "emanuelbap";
-        PlayerSettings.defaultScreenWidth = 960;
-        PlayerSettings.defaultScreenHeight = 540;
-        PlayerSettings.defaultWebScreenWidth = 960;
-        PlayerSettings.defaultWebScreenHeight = 540;
+        PlayerSettings.defaultScreenWidth = 600;
+        PlayerSettings.defaultScreenHeight = 480;
+        PlayerSettings.defaultWebScreenWidth = 600;
+        PlayerSettings.defaultWebScreenHeight = 480;
         PlayerSettings.runInBackground = false;
         PlayerSettings.WebGL.compressionFormat = WebGLCompressionFormat.Disabled;
         PlayerSettings.WebGL.template = "APPLICATION:Default";
@@ -117,6 +131,44 @@ public static class SpaceProjectBuilder
         QualitySettings.SetQualityLevel(originalQuality, false);
         AssetDatabase.SaveAssets();
         Debug.Log("Defesa Espacial: cena montada.");
+    }
+
+    [MenuItem("Defesa Espacial/3 - Tela 600 x 480")]
+    public static void SetGameViewSize()
+    {
+        // O Unity não expõe a seleção do tamanho da aba Game por uma API pública.
+        var assembly = typeof(Editor).Assembly;
+        var sizesType = assembly.GetType("UnityEditor.GameViewSizes");
+        var singleton = typeof(ScriptableSingleton<>).MakeGenericType(sizesType);
+        var sizes = singleton.GetProperty("instance").GetValue(null);
+        var getGroup = sizesType.GetMethod("GetGroup");
+        var groupEnum = getGroup.GetParameters()[0].ParameterType;
+        var group = getGroup.Invoke(sizes, new[] { Enum.Parse(groupEnum, "Standalone") });
+        var groupType = group.GetType();
+        int count = (int)groupType.GetMethod("GetBuiltinCount").Invoke(group, null)
+            + (int)groupType.GetMethod("GetCustomCount").Invoke(group, null);
+        int selected = -1;
+        for (int i = 0; i < count; i++)
+        {
+            var size = groupType.GetMethod("GetGameViewSize").Invoke(group, new object[] { i });
+            if ((int)size.GetType().GetProperty("width").GetValue(size) == 600
+                && (int)size.GetType().GetProperty("height").GetValue(size) == 480) selected = i;
+        }
+        if (selected < 0)
+        {
+            var sizeType = assembly.GetType("UnityEditor.GameViewSize");
+            var kind = assembly.GetType("UnityEditor.GameViewSizeType");
+            var size = Activator.CreateInstance(sizeType, new object[] {
+                Enum.Parse(kind, "FixedResolution"), 600, 480, "Defesa Espacial" });
+            groupType.GetMethod("AddCustomSize").Invoke(group, new[] { size });
+            selected = count;
+        }
+        var gameViewType = assembly.GetType("UnityEditor.GameView");
+        var window = EditorWindow.GetWindow(gameViewType);
+        gameViewType.GetProperty("selectedSizeIndex", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
+            .SetValue(window, selected);
+        window.Repaint();
+        Debug.Log("Defesa Espacial: aba Game em 600 x 480.");
     }
 
     public static void CreateAndBuild()

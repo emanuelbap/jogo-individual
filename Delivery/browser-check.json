@@ -1,21 +1,20 @@
 {
   "result": "passed",
+  "resolution": "600x480",
   "checks": [
     "WebGL carrega no Chrome",
-    "Menu inicia por clique",
-    "Teclas A e D movem a nave",
-    "Pausa congela a ação",
-    "Três danos levam ao fim de jogo",
-    "Fim de jogo congela a ação",
-    "Enter reinicia a partida",
-    "Nave centralizada no reinício",
-    "Volta ao menu",
-    "Movimento W e S",
-    "Diagonal com velocidade limitada",
-    "Limites superior e inferior",
-    "Inimigo aparece após 8 segundos",
-    "Inimigo persegue lateralmente",
-    "Pausa congela inimigos"
+    "Canvas 600 x 480",
+    "WASD e diagonal",
+    "Limites da arena",
+    "HUD de pontos e tempo",
+    "Pausa congela score e tempo",
+    "Fim de jogo",
+    "Enter reinicia",
+    "Volta ao menu e recorde",
+    "Colisão real",
+    "Inimigo aparece e persegue",
+    "Pausa congela inimigos",
+    "Reinício limpa inimigos"
   ],
   "errors": []
 }

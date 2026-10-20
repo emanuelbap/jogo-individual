@@ -3,11 +3,15 @@ Responsável: Emanuel Apolinário
 
 BUILD
 Unity 6000.6.6f1, alvo WebGL, build concluído com zero erros.
+Tela do build e da aba Game: 600 × 480, com arena e interface adaptadas.
 O build foi gerado numa cópia limpa do mesmo projeto para eliminar referências antigas dos pacotes do template. Os scripts, o material e a cena corrigidos estão sincronizados com o projeto principal.
 
 TESTE NO NAVEGADOR
 Chrome com renderização WebGL por software, servido por HTTP local.
 • Carregamento e menu inicial: passou.
+• Canvas de exatamente 600 × 480: passou.
+• Pontos, tempo e vidas visíveis simultaneamente no HUD: conferido.
+• Placar e tempo finais: conferidos.
 • Iniciar pelo botão: passou.
 • Movimento W A S D nas quatro direções: passou.
 • Diagonal sem ganho extra de velocidade: passou.
@@ -23,9 +27,18 @@ Chrome com renderização WebGL por software, servido por HTTP local.
 • Colisão real com asteroide: verificada em captura, vidas passaram de 3 para 2.
 • Nenhum erro de execução detectado no console durante o teste.
 
+PONTUAÇÃO — TESTE AUTOMÁTICO EM PLAY MODE
+• Asteroide saindo da arena: +10 pontos, uma única vez.
+• Nave inimiga saindo da arena: +25 pontos, uma única vez.
+• Colisão com inimigo: reduz vida sem conceder pontos.
+• Pausa e fim de jogo: impedem novos pontos.
+• Reinício: restaura três vidas e zera pontos.
+• Fim de jogo: preserva total e atualiza o recorde salvo.
+Todos passaram. Resultado em score-check.txt.
+
 ARQUIVOS
 01-menu.png: menu inicial.
-02-partida.png: tempo, vidas e asteroides em jogo.
+02-partida.png: pontos, tempo e vidas em jogo.
 03-pausa.png: painel de pausa.
 04-fim-de-jogo.png: tempo final e botões para reiniciar ou voltar.
 05-menu-recorde.png: recorde atualizado no menu.
@@ -36,7 +49,7 @@ DefesaEspacial-WebGL.zip: build para enviar ao itch.io, com index.html na raiz. 
 ITCH_IO.txt: descrição, controles, créditos e checklist de publicação.
 
 BALANCEAMENTO
-A dificuldade chega ao limite aos 40 segundos. Asteroides: velocidade de 2,8 a 6 unidades/s e intervalo de 0,95 a 0,48 segundo. Inimigos: primeiro aos 8 segundos, intervalo de 7 a 4 segundos, máximo de dois em cena, perseguição lateral de 2 a 3 unidades/s (jogador: 8). Na aproximação final, seguem reto.
+A dificuldade chega ao limite aos 40 segundos. Asteroides: velocidade de 2,8 a 6 unidades/s e intervalo de 1,05 a 0,65 segundo. Inimigos: primeiro aos 8 segundos, intervalo de 7 a 4 segundos, máximo de dois em cena, perseguição lateral de 2 a 3 unidades/s (jogador: 8). Na aproximação final, seguem reto.
 
 PENDÊNCIAS EXTERNAS
 • Suporte a Xbox implementado; controle físico ainda não testado.

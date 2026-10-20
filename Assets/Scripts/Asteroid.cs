@@ -11,6 +11,10 @@ public class Asteroid : MonoBehaviour
         if (game.State != GameManager.GameState.Playing || game.Paused) return;
         transform.position += Vector3.down * fallSpeed * Time.deltaTime;
         transform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
-        if (transform.position.y < -6) Destroy(gameObject);
+        if (transform.position.y < -6)
+        {
+            game.AddScore(10);
+            Destroy(gameObject);
+        }
     }
 }
