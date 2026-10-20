@@ -9,7 +9,12 @@ TESTE NO NAVEGADOR
 Chrome com renderização WebGL por software, servido por HTTP local.
 • Carregamento e menu inicial: passou.
 • Iniciar pelo botão: passou.
-• Movimento A / D, nos dois sentidos: passou.
+• Movimento W A S D nas quatro direções: passou.
+• Diagonal sem ganho extra de velocidade: passou.
+• Limites superior e inferior da arena: passou.
+• Naves inimigas surgem a partir de 8 segundos: passou.
+• Perseguição lateral dos inimigos: passou.
+• Pausa também congela os inimigos: passou.
 • Pausa por Esc: passou; a imagem fica congelada.
 • Aplicação de três danos à lógica de partida: passou; mostra fim de jogo e tempo final.
 • Fim de jogo: a imagem fica congelada.
@@ -25,9 +30,13 @@ ARQUIVOS
 04-fim-de-jogo.png: tempo final e botões para reiniciar ou voltar.
 05-menu-recorde.png: recorde atualizado no menu.
 06-colisao.png: vidas reduzidas após colisão real.
+07-inimigo.png: nave inimiga perseguindo lateralmente o jogador.
 cover.png: capa de 630 × 500, com o nome completo.
 DefesaEspacial-WebGL.zip: build para enviar ao itch.io, com index.html na raiz. Integridade do ZIP conferida.
 ITCH_IO.txt: descrição, controles, créditos e checklist de publicação.
+
+BALANCEAMENTO
+A dificuldade chega ao limite aos 40 segundos. Asteroides: velocidade de 2,8 a 6 unidades/s e intervalo de 0,95 a 0,48 segundo. Inimigos: primeiro aos 8 segundos, intervalo de 7 a 4 segundos, máximo de dois em cena, perseguição lateral de 2 a 3 unidades/s (jogador: 8). Na aproximação final, seguem reto.
 
 PENDÊNCIAS EXTERNAS
 • Suporte a Xbox implementado; controle físico ainda não testado.

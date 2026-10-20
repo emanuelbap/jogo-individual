@@ -2,12 +2,12 @@ TÍTULO
 Defesa Espacial
 
 DESCRIÇÃO
-Uma nave, três vidas e uma chuva de asteroides. Quanto tempo você consegue sobreviver?
+Uma nave, três vidas e uma chuva de asteroides e naves inimigas. Quanto tempo você consegue sobreviver?
 
-Defesa Espacial é um arcade 2D em que você precisa desviar dos asteroides que chegam do alto da tela. A cada segundo eles ficam mais rápidos e aparecem com mais frequência. Seu tempo de sobrevivência é sua pontuação: tente superar seu recorde!
+Defesa Espacial é um arcade 2D em que você precisa desviar dos asteroides e das naves inimigas que chegam do alto da tela. A dificuldade aumenta até os 40 segundos e depois se estabiliza. As naves inimigas acompanham você na horizontal e seguem reto na aproximação final. Seu tempo de sobrevivência é sua pontuação: tente superar seu recorde!
 
 COMO JOGAR
-• A / D ou setas esquerda e direita: mover a nave.
+• W A S D ou setas: mover a nave em todas as direções.
 • Controle Xbox: analógico esquerdo ou direcional para mover; A confirma os botões.
 • Enter confirma o botão selecionado; Espaço inicia ou reinicia a partida.
 • Esc ou Start: pausar e continuar.
@@ -38,4 +38,4 @@ PUBLICAÇÃO
 
 CONFERÊNCIA COM A RUBRICA
 Implementado: cronômetro, tempo final, dificuldade por tempo, asteroides em movimento com dano, sprites coerentes, música e três efeitos, tempo/vidas/recorde na UI, suporte a controle, arena espacial, menu, reinício e pausa.
-O GDD usa o tempo como pontuação; não há pontuação separada. Não há inimigos perseguidores: os asteroides seguem trajetórias verticais. O tutorial original precisa ser conferido pelo aluno. Esses detalhes podem influenciar a avaliação; não há garantia de nota.
+O GDD usa o tempo como pontuação; não há pontuação separada. Há naves inimigas com perseguição lateral e ataque em linha reta; os asteroides seguem trajetórias verticais. O tutorial original precisa ser conferido pelo aluno. Esses detalhes podem influenciar a avaliação; não há garantia de nota.

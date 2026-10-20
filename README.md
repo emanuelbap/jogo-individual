@@ -2,13 +2,13 @@
 
 Jogo 2D de sobrevivência feito em **Unity 6000.6.6f1** para o Projeto Introdução ao Unity do Insper (2026.2).
 
-Controle uma nave, desvie dos asteroides e tente sobreviver o máximo possível. O tempo é a pontuação. A nave começa com três vidas; os asteroides ficam mais rápidos e frequentes com o passar do tempo. Após uma colisão, a nave pisca e fica protegida por 1,5 segundo.
+Controle uma nave, desvie dos asteroides e das naves inimigas e tente sobreviver o máximo possível. O tempo é a pontuação. A nave começa com três vidas; os asteroides ficam mais rápidos e frequentes com o passar do tempo. Após uma colisão, a nave pisca e fica protegida por 1,5 segundo.
 
 ## Como jogar
 
 | Ação | Teclado | Controle Xbox |
 | --- | --- | --- |
-| Mover para os lados | A / D ou ← / → | Analógico esquerdo ou direcional |
+| Mover em todas as direções | W A S D ou setas | Analógico esquerdo ou direcional |
 | Iniciar / confirmar botão | Enter; Espaço inicia a partida | A |
 | Pausar / continuar | Esc | Start |
 | Navegar nos menus | Setas e Enter, ou mouse | Direcional e A |
@@ -21,7 +21,7 @@ O menu permite iniciar, controlar o som e consultar o recorde. Ao perder todas a
 2. Abra `Assets/Scenes/DefesaEspacial.unity` e pressione **Play**.
 3. Se precisar reconstruir a cena, use **Defesa Espacial → 1 - Montar cena**. Essa opção recria a cena; salve suas alterações antes.
 
-A cena original `SampleScene` do template foi preservada. A cena do jogo é a única incluída no build.
+A cena do jogo é `DefesaEspacial` e é a única incluída no build.
 
 ## Gerar e testar WebGL
 
@@ -44,21 +44,22 @@ Acesse `http://localhost:8000`. A compressão WebGL foi desativada para simplifi
 ## Organização dos scripts
 
 - `GameManager.cs`: menu, partida, pausa, vidas, cronômetro e recorde.
-- `PlayerController.cs`: movimento lateral, limites e proteção após colisão.
-- `AsteroidSpawner.cs`: criação dos asteroides e dificuldade ao longo do tempo.
+- `PlayerController.cs`: movimento em todas as direções, limites e proteção após colisão.
+- `AsteroidSpawner.cs`: criação dos asteroides, limite de inimigos e dificuldade ao longo do tempo.
+- `EnemyShip.cs`: perseguição lateral durante a aproximação e ataque em linha reta.
 - `Asteroid.cs`: queda, rotação e remoção fora da tela.
 - `GameUI.cs`: textos, botões, placar e menus usando Unity UI.
 - `GameAudio.cs`: música, efeitos e preferência de som.
 - `CameraFrame.cs`: enquadramento da arena em 16:9.
 - `Editor/SpaceProjectBuilder.cs`: montagem da cena e geração do build.
 
-Parâmetros como velocidade, intervalo dos asteroides e duração da proteção podem ser alterados no Inspector. A dificuldade tem limites de velocidade e frequência para manter a partida possível. Não há tiros, upgrades, fases ou sistemas adicionais.
+Parâmetros como velocidade, intervalo dos asteroides e duração da proteção podem ser alterados no Inspector. A dificuldade tem limites de velocidade e frequência para manter a partida possível. A dificuldade cresce até os 40 segundos e depois para de aumentar: os asteroides chegam a 6 unidades/s, com intervalo mínimo de 0,48 s. A primeira nave inimiga chega aos 8 segundos; existem no máximo duas ao mesmo tempo. Elas perseguem lateralmente e seguem reto na aproximação final, sempre mais lentas que o jogador. Não há tiros, upgrades ou fases.
 
 ## Créditos e referências
 
 - Responsável pelo projeto: **Emanuel Apolinário**.
 - Desenvolvimento com assistência do **OpenAI Codex**: implementação inicial, sprites geométricos, síntese dos sons e documentação. Revise e compreenda os scripts e siga as regras da disciplina para uso de assistência.
-- Sprites `ship.png`, `asteroid.png` e `background.png`: criados especificamente para este projeto por desenho procedural, sem imagens de terceiros.
+- Sprites `ship.png`, `asteroid.png`, `enemy.png` e `background.png`: criados especificamente para este projeto por desenho procedural, sem imagens de terceiros.
 - Música e efeitos: síntese procedural original, sem gravações ou samples externos.
 - `Tools/generate_assets.py` gera novamente as imagens e os sons (Python 3 + Pillow).
 - Engine, Unity UI e Input System: Unity Technologies. Fonte: `LegacyRuntime.ttf`, fornecida pelo Unity.

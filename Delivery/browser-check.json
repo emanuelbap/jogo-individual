@@ -9,7 +9,13 @@
     "Fim de jogo congela a ação",
     "Enter reinicia a partida",
     "Nave centralizada no reinício",
-    "Volta ao menu"
+    "Volta ao menu",
+    "Movimento W e S",
+    "Diagonal com velocidade limitada",
+    "Limites superior e inferior",
+    "Inimigo aparece após 8 segundos",
+    "Inimigo persegue lateralmente",
+    "Pausa congela inimigos"
   ],
   "errors": []
 }

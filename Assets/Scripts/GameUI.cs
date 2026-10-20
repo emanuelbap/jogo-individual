@@ -46,7 +46,7 @@ public class GameUI : MonoBehaviour
         menuButton = MakeButton(overlay.transform, "MENU PRINCIPAL", new Vector2(0, -135), new Vector2(290, 42), game.ReturnToMenu);
         soundButton = MakeButton(overlay.transform, "", new Vector2(0, -188), new Vector2(180, 34), ToggleSound);
         soundLabel = soundButton.GetComponentInChildren<Text>();
-        Label(overlay.transform, "Mover: A / D ou setas  •  Controle: analógico / direcional\nEnter / Espaço / A: iniciar  •  Esc / Start: pausar", new Vector2(0, -239), 16, new Vector2(900, 50));
+        Label(overlay.transform, "Mover: W A S D ou setas  •  Controle: analógico / direcional\nEnter / Espaço / A: iniciar  •  Esc / Start: pausar", new Vector2(0, -239), 16, new Vector2(900, 50));
     }
 
     void PrimaryAction()
@@ -75,7 +75,7 @@ public class GameUI : MonoBehaviour
         hud.SetActive(!menu && !over && !game.Paused);
         bestLabel.gameObject.SetActive(!menu && !over && !game.Paused);
         title.text = menu ? "DEFESA ESPACIAL" : over ? "FIM DE JOGO" : "PAUSADO";
-        description.text = menu ? "Desvie dos asteroides e sobreviva o máximo que puder.\nVocê tem 3 vidas. O espaço fica mais perigoso com o tempo."
+        description.text = menu ? "Desvie dos asteroides e das naves inimigas.\nVocê tem 3 vidas. Os inimigos seguem você na aproximação."
             : over ? "Sua nave foi atingida. Vamos tentar mais uma vez?" : "Respire um pouco. Sua partida está guardada aqui.";
         finalTime.text = over ? $"VOCÊ SOBREVIVEU {game.SurvivalTime:0.0} s" : $"RECORDE  {game.BestTime:0.0} s";
         primaryButton.GetComponentInChildren<Text>().text = menu ? "INICIAR" : over ? "TENTAR NOVAMENTE" : "CONTINUAR";

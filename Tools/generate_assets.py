@@ -12,6 +12,11 @@ d.polygon([(18,4),(38,3),(54,15),(60,34),(50,52),(32,60),(12,52),(3,34),(7,16)],
 d.ellipse((13,13,29,28),fill='#602c30',outline='#ce6740',width=2)
 d.ellipse((34,30,49,46),fill='#602c30',outline='#ce6740',width=2)
 d.ellipse((15,39,23,47),fill='#e47a48'); im.save(art/'asteroid.png')
+im=Image.new('RGBA',(64,64)); d=ImageDraw.Draw(im)
+d.polygon([(7,8),(24,18),(32,10),(40,18),(57,8),(53,37),(41,42),(32,59),(23,42),(11,37)],fill='#923ba3',outline='#ff8ce0',width=2)
+d.polygon([(32,29),(39,37),(32,48),(25,37)],fill='#ffdb67')
+d.rectangle((13,17,18,29),fill='#e35aa8');d.rectangle((46,17,51,29),fill='#e35aa8')
+im.save(art/'enemy.png')
 r=random.Random(41); im=Image.new('RGB',(960,540),'#050b1c'); d=ImageDraw.Draw(im)
 for i in range(145):
  x,y=r.randrange(960),r.randrange(540); c=r.choice(['#253554','#53658b','#8196b7']); d.rectangle((x,y,x+1,y+1),fill=c)

@@ -35,6 +35,7 @@ public static class SpaceProjectBuilder
             throw new OperationCanceledException("Montagem cancelada para preservar a cena aberta.");
         ImportSprite("Assets/Art/ship.png", 64);
         ImportSprite("Assets/Art/asteroid.png", 64);
+        ImportSprite("Assets/Art/enemy.png", 64);
         ImportSprite("Assets/Art/background.png", 54);
         const string materialPath = "Assets/Art/SpaceSprite.mat";
         var spriteMaterial = AssetDatabase.LoadAssetAtPath<Material>(materialPath);
@@ -74,6 +75,8 @@ public static class SpaceProjectBuilder
         var spawner = new GameObject("AsteroidSpawner").AddComponent<AsteroidSpawner>();
         spawner.game = manager;
         spawner.asteroidMaterial = spriteMaterial;
+        spawner.minimumInterval = 0.48f;
+        spawner.enemySprite = Load<Sprite>("Assets/Art/enemy.png");
         spawner.asteroidSprite = Load<Sprite>("Assets/Art/asteroid.png");
         manager.spawner = spawner;
         var audio = new GameObject("Audio").AddComponent<GameAudio>();
