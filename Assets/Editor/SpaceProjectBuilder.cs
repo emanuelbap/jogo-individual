@@ -36,6 +36,13 @@ public static class SpaceProjectBuilder
         ImportSprite("Assets/Art/ship.png", 64);
         ImportSprite("Assets/Art/asteroid.png", 64);
         ImportSprite("Assets/Art/background.png", 54);
+        const string materialPath = "Assets/Art/SpaceSprite.mat";
+        var spriteMaterial = AssetDatabase.LoadAssetAtPath<Material>(materialPath);
+        if (spriteMaterial == null)
+        {
+            spriteMaterial = new Material(Shader.Find("Sprites/Default"));
+            AssetDatabase.CreateAsset(spriteMaterial, materialPath);
+        }
         var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
         var cameraObject = new GameObject("Main Camera", typeof(Camera), typeof(AudioListener), typeof(CameraFrame));
         cameraObject.tag = "MainCamera";
@@ -48,12 +55,14 @@ public static class SpaceProjectBuilder
         var background = new GameObject("Fundo estrelado", typeof(SpriteRenderer));
         background.GetComponent<SpriteRenderer>().sprite = Load<Sprite>("Assets/Art/background.png");
         background.GetComponent<SpriteRenderer>().sortingOrder = -10;
+        background.GetComponent<SpriteRenderer>().sharedMaterial = spriteMaterial;
 
         var manager = new GameObject("GameManager").AddComponent<GameManager>();
         var ship = new GameObject("Nave", typeof(SpriteRenderer), typeof(Rigidbody2D), typeof(BoxCollider2D));
         ship.transform.position = new Vector3(0, -3.5f, 0);
         ship.GetComponent<SpriteRenderer>().sprite = Load<Sprite>("Assets/Art/ship.png");
         ship.GetComponent<SpriteRenderer>().sortingOrder = 3;
+        ship.GetComponent<SpriteRenderer>().sharedMaterial = spriteMaterial;
         var body = ship.GetComponent<Rigidbody2D>();
         body.bodyType = RigidbodyType2D.Kinematic;
         body.gravityScale = 0;
@@ -64,6 +73,7 @@ public static class SpaceProjectBuilder
         manager.player = player;
         var spawner = new GameObject("AsteroidSpawner").AddComponent<AsteroidSpawner>();
         spawner.game = manager;
+        spawner.asteroidMaterial = spriteMaterial;
         spawner.asteroidSprite = Load<Sprite>("Assets/Art/asteroid.png");
         manager.spawner = spawner;
         var audio = new GameObject("Audio").AddComponent<GameAudio>();
@@ -88,6 +98,8 @@ public static class SpaceProjectBuilder
         PlayerSettings.companyName = "emanuelbap";
         PlayerSettings.defaultScreenWidth = 960;
         PlayerSettings.defaultScreenHeight = 540;
+        PlayerSettings.defaultWebScreenWidth = 960;
+        PlayerSettings.defaultWebScreenHeight = 540;
         PlayerSettings.runInBackground = false;
         PlayerSettings.WebGL.compressionFormat = WebGLCompressionFormat.Disabled;
         PlayerSettings.WebGL.template = "APPLICATION:Default";
@@ -102,6 +114,12 @@ public static class SpaceProjectBuilder
         QualitySettings.SetQualityLevel(originalQuality, false);
         AssetDatabase.SaveAssets();
         Debug.Log("Defesa Espacial: cena montada.");
+    }
+
+    public static void CreateAndBuild()
+    {
+        CreateScene();
+        BuildWebGL();
     }
 
     [MenuItem("Defesa Espacial/2 - Gerar WebGL")]

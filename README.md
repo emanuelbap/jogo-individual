@@ -25,12 +25,12 @@ A cena original `SampleScene` do template foi preservada. A cena do jogo é a ú
 
 ## Gerar e testar WebGL
 
-Instale o módulo **WebGL Build Support** pelo Unity Hub. No editor, use **Defesa Espacial → 2 - Gerar WebGL**. O resultado fica em `Delivery/WebGL/`.
+Instale o módulo **WebGL Build Support** pelo Unity Hub. No editor, use **Defesa Espacial → 2 - Gerar WebGL**. O resultado fica em `Delivery/WebGL/`. No Linux, a conversão de áudio do Unity também requer `ffmpeg` no PATH.
 
 Também é possível gerar pelo terminal, com o editor do projeto fechado:
 
 ```bash
-/caminho/para/Unity -batchmode -nographics -quit -projectPath "$PWD" -executeMethod SpaceProjectBuilder.BuildWebGL -logFile /tmp/defesa-build.log
+BEE_BUILD_THREADS=2 /caminho/para/Unity -batchmode -nographics -quit -buildTarget WebGL -projectPath "$PWD" -executeMethod SpaceProjectBuilder.BuildWebGL -logFile /tmp/defesa-build.log
 ```
 
 Para testar, sirva o build por HTTP (abrir `index.html` diretamente não basta):
@@ -39,7 +39,7 @@ Para testar, sirva o build por HTTP (abrir `index.html` diretamente não basta):
 python3 -m http.server 8000 --directory Delivery/WebGL
 ```
 
-Acesse `http://localhost:8000`. A compressão WebGL foi desativada para simplificar o upload no itch.io. Faça um ZIP do **conteúdo** de `Delivery/WebGL`, com `index.html` na raiz do ZIP, e selecione **HTML — jogar no navegador** no itch.io. Use o tamanho **960 × 540** e habilite tela cheia.
+Acesse `http://localhost:8000`. A compressão WebGL foi desativada para simplificar o upload no itch.io. Execute `python3 Tools/package_webgl.py` para gerar `Delivery/DefesaEspacial-WebGL.zip`, ou faça um ZIP do **conteúdo** de `Delivery/WebGL`, com `index.html` na raiz do ZIP, e selecione **HTML — jogar no navegador** no itch.io. Use o tamanho **960 × 540** e habilite tela cheia.
 
 ## Organização dos scripts
 
@@ -68,4 +68,4 @@ Parâmetros como velocidade, intervalo dos asteroides e duração da proteção 
 
 Repositório: https://github.com/emanuelbap/jogo-individual
 
-Veja `Delivery/ITCH_IO.txt` para descrição, controles e checklist de publicação. Publicar no itch.io, entrar na jam e informar todos os links no Blackboard são etapas separadas do envio do código ao GitHub.
+A capa está em `Delivery/cover.png`. Veja `Delivery/ITCH_IO.txt` para descrição, controles e checklist de publicação. Publicar no itch.io, entrar na jam e informar todos os links no Blackboard são etapas separadas do envio do código ao GitHub.

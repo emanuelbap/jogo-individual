@@ -1,0 +1,36 @@
+Defesa Espacial — validação em 20/10/2026
+Responsável: Emanuel Apolinário
+
+BUILD
+Unity 6000.6.6f1, alvo WebGL, build concluído com zero erros.
+O build foi gerado numa cópia limpa do mesmo projeto para eliminar referências antigas dos pacotes do template. Os scripts, o material e a cena corrigidos estão sincronizados com o projeto principal.
+
+TESTE NO NAVEGADOR
+Chrome com renderização WebGL por software, servido por HTTP local.
+• Carregamento e menu inicial: passou.
+• Iniciar pelo botão: passou.
+• Movimento A / D, nos dois sentidos: passou.
+• Pausa por Esc: passou; a imagem fica congelada.
+• Aplicação de três danos à lógica de partida: passou; mostra fim de jogo e tempo final.
+• Fim de jogo: a imagem fica congelada.
+• Reinício por Enter: passou; nave centralizada, tempo e vidas reiniciados.
+• Retorno ao menu e exibição do recorde: passou.
+• Colisão real com asteroide: verificada em captura, vidas passaram de 3 para 2.
+• Nenhum erro de execução detectado no console durante o teste.
+
+ARQUIVOS
+01-menu.png: menu inicial.
+02-partida.png: tempo, vidas e asteroides em jogo.
+03-pausa.png: painel de pausa.
+04-fim-de-jogo.png: tempo final e botões para reiniciar ou voltar.
+05-menu-recorde.png: recorde atualizado no menu.
+06-colisao.png: vidas reduzidas após colisão real.
+cover.png: capa de 630 × 500, com o nome completo.
+DefesaEspacial-WebGL.zip: build para enviar ao itch.io, com index.html na raiz. Integridade do ZIP conferida.
+ITCH_IO.txt: descrição, controles, créditos e checklist de publicação.
+
+PENDÊNCIAS EXTERNAS
+• Suporte a Xbox implementado; controle físico ainda não testado.
+• Comparar o resultado com o tutorial da disciplina, que não ficou acessível nesta sessão.
+• Autenticar o GitHub para enviar os commits locais. O remoto está configurado e o repositório foi confirmado como público.
+• Publicar e testar no itch.io, inscrever na jam e informar os links no Blackboard até 20/10/2026 às 23:50 (Brasília).

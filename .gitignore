@@ -23,3 +23,7 @@
 
 /Delivery/request-build
 /Delivery/build-error.txt
+/Assets/Resources/PerformanceTestRunInfo.json*
+/Assets/Resources/PerformanceTestRunSettings.json*
+
+/Delivery/build-result.txt

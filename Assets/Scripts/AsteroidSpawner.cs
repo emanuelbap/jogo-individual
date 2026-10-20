@@ -4,6 +4,7 @@ public class AsteroidSpawner : MonoBehaviour
 {
     public GameManager game;
     public Sprite asteroidSprite;
+    public Material asteroidMaterial;
     public float initialInterval = 0.95f;
     public float minimumInterval = 0.32f;
     float timer;
@@ -26,6 +27,7 @@ public class AsteroidSpawner : MonoBehaviour
         rock.transform.localScale = Vector3.one * Random.Range(0.8f, 1.25f);
         var renderer = rock.AddComponent<SpriteRenderer>();
         renderer.sprite = asteroidSprite;
+        renderer.sharedMaterial = asteroidMaterial;
         renderer.sortingOrder = 2;
         var collider = rock.AddComponent<CircleCollider2D>();
         collider.radius = 0.42f;

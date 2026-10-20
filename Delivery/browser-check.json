@@ -1,0 +1,15 @@
+{
+  "result": "passed",
+  "checks": [
+    "WebGL carrega no Chrome",
+    "Menu inicia por clique",
+    "Teclas A e D movem a nave",
+    "Pausa congela a ação",
+    "Três danos levam ao fim de jogo",
+    "Fim de jogo congela a ação",
+    "Enter reinicia a partida",
+    "Nave centralizada no reinício",
+    "Volta ao menu"
+  ],
+  "errors": []
+}

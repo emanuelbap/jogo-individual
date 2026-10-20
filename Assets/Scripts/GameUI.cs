@@ -20,6 +20,7 @@ public class GameUI : MonoBehaviour
         canvas.renderMode = RenderMode.ScreenSpaceCamera;
         canvas.worldCamera = Camera.main;
         canvas.planeDistance = 5;
+        canvas.sortingOrder = 100;
         var scaler = gameObject.AddComponent<CanvasScaler>();
         scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
         scaler.referenceResolution = new Vector2(960, 540);
@@ -72,6 +73,7 @@ public class GameUI : MonoBehaviour
         bool over = game.State == GameManager.GameState.GameOver;
         overlay.SetActive(menu || over || game.Paused);
         hud.SetActive(!menu && !over && !game.Paused);
+        bestLabel.gameObject.SetActive(!menu && !over && !game.Paused);
         title.text = menu ? "DEFESA ESPACIAL" : over ? "FIM DE JOGO" : "PAUSADO";
         description.text = menu ? "Desvie dos asteroides e sobreviva o máximo que puder.\nVocê tem 3 vidas. O espaço fica mais perigoso com o tempo."
             : over ? "Sua nave foi atingida. Vamos tentar mais uma vez?" : "Respire um pouco. Sua partida está guardada aqui.";

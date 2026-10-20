@@ -3,6 +3,7 @@
 *.py text eol=lf
 *.unity -whitespace
 *.asset -whitespace
+*.mat -whitespace
 *.meta -whitespace
 *.png binary
 *.wav binary
