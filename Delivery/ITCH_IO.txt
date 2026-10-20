@@ -1,0 +1,41 @@
+TÍTULO
+Defesa Espacial
+
+DESCRIÇÃO
+Uma nave, três vidas e uma chuva de asteroides. Quanto tempo você consegue sobreviver?
+
+Defesa Espacial é um arcade 2D em que você precisa desviar dos asteroides que chegam do alto da tela. A cada segundo eles ficam mais rápidos e aparecem com mais frequência. Seu tempo de sobrevivência é sua pontuação: tente superar seu recorde!
+
+COMO JOGAR
+• A / D ou setas esquerda e direita: mover a nave.
+• Controle Xbox: analógico esquerdo ou direcional para mover; A confirma os botões.
+• Enter confirma o botão selecionado; Espaço inicia ou reinicia a partida.
+• Esc ou Start: pausar e continuar.
+• Você começa com 3 vidas. Após um impacto, a nave pisca e fica protegida por 1,5 segundo.
+• Ao perder todas as vidas, confira seu tempo e escolha Tentar novamente.
+• Os botões também funcionam com o mouse. O som pode ser desligado no menu.
+• Ao sair da aba, a partida pausa. Clique no jogo e escolha Continuar para retomar.
+• O recorde fica salvo neste navegador. Não há segredos ou controles adicionais.
+
+CRÉDITOS
+Aluno: Emanuel Apolinário
+GitHub: https://github.com/emanuelbap/jogo-individual
+Unity 6000.6.6f1. Desenvolvimento com assistência do OpenAI Codex.
+Sprites, música e efeitos originais criados para este projeto.
+
+PUBLICAÇÃO
+[ ] Confirmar que o GitHub está público, abrindo o link em janela anônima.
+[x] Nome completo nos créditos: Emanuel Apolinário.
+[ ] Fazer upload de DefesaEspacial-WebGL.zip (ou zipar o conteúdo de WebGL/).
+[ ] Tipo: HTML, marcar que o arquivo é jogável no navegador.
+[ ] Área de jogo: 960 × 540; permitir tela cheia.
+[ ] Adicionar capa e capturas de tela da pasta Delivery.
+[ ] Colar descrição, controles, nome completo e link do GitHub.
+[ ] Testar o jogo na própria página publicada, inclusive áudio e reinício.
+[ ] Testar controle Xbox conectado ao navegador, se disponível.
+[ ] Inscrever o jogo em https://itch.io/jam/projeto-intro-unity-insper-20262
+[ ] Entregar os links completos no Blackboard até 20/10/2026 às 23:50 (Brasília).
+
+CONFERÊNCIA COM A RUBRICA
+Implementado: cronômetro, tempo final, dificuldade por tempo, asteroides em movimento com dano, sprites coerentes, música e três efeitos, tempo/vidas/recorde na UI, suporte a controle, arena espacial, menu, reinício e pausa.
+O GDD usa o tempo como pontuação; não há pontuação separada. Não há inimigos perseguidores: os asteroides seguem trajetórias verticais. O tutorial original precisa ser conferido pelo aluno. Esses detalhes podem influenciar a avaliação; não há garantia de nota.

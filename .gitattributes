@@ -1,0 +1,8 @@
+*.cs text eol=lf
+*.md text eol=lf
+*.py text eol=lf
+*.unity -whitespace
+*.asset -whitespace
+*.meta -whitespace
+*.png binary
+*.wav binary
