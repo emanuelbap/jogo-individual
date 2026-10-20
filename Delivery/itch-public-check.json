@@ -1,0 +1,13 @@
+{
+  "url": "https://emanuel-apolinario.itch.io/defesa-espacial",
+  "anonymous": true,
+  "status": 200,
+  "fullName": true,
+  "githubLink": true,
+  "screenshots": 3,
+  "canvas": {
+    "width": 600,
+    "height": 480
+  },
+  "errors": []
+}

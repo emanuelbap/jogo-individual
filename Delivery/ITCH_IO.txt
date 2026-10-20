@@ -26,13 +26,14 @@ Unity 6000.6.6f1. Desenvolvimento com assistência do OpenAI Codex.
 Sprites, música e efeitos originais criados para este projeto.
 
 PUBLICAÇÃO
+Página pública: https://emanuel-apolinario.itch.io/defesa-espacial
 [ ] Confirmar que o GitHub está público, abrindo o link em janela anônima.
 [x] Nome completo nos créditos: Emanuel Apolinário.
-[ ] Fazer upload de DefesaEspacial-WebGL.zip (ou zipar o conteúdo de WebGL/).
-[ ] Tipo: HTML, marcar que o arquivo é jogável no navegador.
-[ ] Área de jogo: 600 × 480; permitir tela cheia.
-[ ] Adicionar capa e capturas de tela da pasta Delivery.
-[ ] Colar descrição, controles, nome completo e link do GitHub.
+[x] Fazer upload de DefesaEspacial-WebGL.zip (ou zipar o conteúdo de WebGL/).
+[x] Tipo: HTML, marcar que o arquivo é jogável no navegador.
+[x] Área de jogo: 600 × 480; permitir tela cheia.
+[x] Adicionar capa e capturas de tela da pasta Delivery.
+[x] Colar descrição, controles, nome completo e link do GitHub.
 [ ] Testar o jogo na própria página publicada, inclusive áudio e reinício.
 [ ] Testar controle Xbox conectado ao navegador, se disponível.
 [ ] Inscrever o jogo em https://itch.io/jam/projeto-intro-unity-insper-20262

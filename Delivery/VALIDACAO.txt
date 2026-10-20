@@ -57,4 +57,7 @@ PENDÊNCIAS EXTERNAS
 • Suporte a Xbox implementado; controle físico ainda não testado.
 • Comparar o resultado com o tutorial da disciplina, que não ficou acessível nesta sessão.
 • Autenticar o GitHub para enviar os commits locais. O remoto está configurado e o repositório foi confirmado como público.
-• Publicar e testar no itch.io, inscrever na jam e informar os links no Blackboard até 20/10/2026 às 23:50 (Brasília).
+• Página publicada: https://emanuel-apolinario.itch.io/defesa-espacial
+• Jogo hospedado iniciado em 600 × 480, sem erros detectados. Capa, três capturas, descrição, nome completo e GitHub configurados.
+• Conta entrou na jam. Submissão do jogo aguarda informar o curso obrigatório.
+• Informar os links no Blackboard até 20/10/2026 às 23:50 (Brasília).
